@@ -35,27 +35,6 @@
 					"type": "executiontime"
 				},
 				{
-					"background": "#fffb38",
-					"background_templates": [
-						"{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
-						"{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}",
-						"{{ if gt .Ahead 0 }}#B388FF{{ end }}",
-						"{{ if gt .Behind 0 }}#B388FF{{ end }}"
-					],
-					"foreground": "#193549",
-					"powerline_symbol": "\ue0b0",
-					"properties": {
-						"branch_max_length": 15,
-						"fetch_stash_count": true,
-						"fetch_status": true,
-						"fetch_upstream_icon": true
-					},
-					"style": "diamond",
-					"template": " {{ .HEAD }}{{ if .Working.Changed }}|{{ .Working.Modified }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.Modified }}{{ end }}",
-					"trailing_diamond": "\ue0b0",
-					"type": "git"
-				},
-				{
 					"background": "#cd2c00",
 					"background_templates": ["{{ if gt .Code 0 }}#e91e63{{ end }}"],
 					"foreground": "#ffffff",
