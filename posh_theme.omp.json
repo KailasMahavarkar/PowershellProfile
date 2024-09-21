@@ -1,0 +1,76 @@
+{
+	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+	"final_space": true,
+	"blocks": [
+		{
+			"alignment": "left",
+			"segments": [
+				{
+					"background": "#DAF0EE",
+					"foreground": "#000000",
+					"powerline_symbol": "\ue0b0",
+					"properties": {
+						"folder_separator_icon": " \ue0b1 ",
+						"home_icon": "~",
+						"style": "agnoster_full",
+						"mapped_locations_enabled": true,
+						"mapped_locations": {
+							"C:\\Users\\Admin\\Desktop\\BooleanStack": "BooleanStack",
+							"C:\\cpp": "cpp",
+							"C:\\codingFiles\\work": "work"
+						}
+					},
+					"type": "path",
+					"template": " \uea83 {{ .Parent }}{{ if gt (len .Folder) 10}}{{ printf \"%.15s... \" .Folder }}{{ else }}{{ .Folder }}{{ end }}"
+				},
+				{
+					"background": "#3B413C",
+					"foreground": "#ffffff",
+					"properties": {
+						"always_enabled": true
+					},
+					"trailing_diamond": "\ue0b0",
+					"style": "diamond",
+					"template": "\ue0b0</> \ueba2 {{ .FormattedMs }}\u2800",
+					"type": "executiontime"
+				},
+				{
+					"background": "#fffb38",
+					"background_templates": [
+						"{{ if or (.Working.Changed) (.Staging.Changed) }}#FF9248{{ end }}",
+						"{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff4500{{ end }}",
+						"{{ if gt .Ahead 0 }}#B388FF{{ end }}",
+						"{{ if gt .Behind 0 }}#B388FF{{ end }}"
+					],
+					"foreground": "#193549",
+					"powerline_symbol": "\ue0b0",
+					"properties": {
+						"branch_max_length": 15,
+						"fetch_stash_count": true,
+						"fetch_status": true,
+						"fetch_upstream_icon": true
+					},
+					"style": "diamond",
+					"template": " {{ .HEAD }}{{ if .Working.Changed }}|{{ .Working.Modified }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.Modified }}{{ end }}",
+					"trailing_diamond": "\ue0b0",
+					"type": "git"
+				},
+				{
+					"background": "#cd2c00",
+					"background_templates": ["{{ if gt .Code 0 }}#e91e63{{ end }}"],
+					"foreground": "#ffffff",
+					"properties": {
+						"always_enabled": true
+					},
+					"style": "diamond",
+					"template": " \u26a1 ",
+					"trailing_diamond": "\ue0b0",
+					"type": "status"
+				}
+			],
+			"type": "prompt"
+		}
+	],
+	"console_title_template": "{{ .Shell }} in {{ .Folder }}",
+	"version": 2
+}
