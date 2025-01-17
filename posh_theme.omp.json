@@ -1,55 +1,57 @@
 {
-	"$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-	"final_space": true,
-	"blocks": [
-		{
-			"alignment": "left",
-			"segments": [
-				{
-					"background": "#DAF0EE",
-					"foreground": "#000000",
-					"powerline_symbol": "\ue0b0",
-					"properties": {
-						"folder_separator_icon": " \ue0b1 ",
-						"home_icon": "~",
-						"style": "agnoster_full",
-						"mapped_locations_enabled": true,
-						"mapped_locations": {
-							"C:\\Users\\Admin\\Desktop\\BooleanStack": "BooleanStack",
-							"C:\\cpp": "cpp",
-							"C:\\codingFiles\\work": "work"
-						}
-					},
-					"type": "path",
-					"template": " \uea83 {{ .Parent }}{{ if gt (len .Folder) 10}}{{ printf \"%.15s... \" .Folder }}{{ else }}{{ .Folder }}{{ end }}"
-				},
-				{
-					"background": "#3B413C",
-					"foreground": "#ffffff",
-					"properties": {
-						"always_enabled": true
-					},
-					"trailing_diamond": "\ue0b0",
-					"style": "diamond",
-					"template": "\ue0b0</> \ueba2 {{ .FormattedMs }}\u2800",
-					"type": "executiontime"
-				},
-				{
-					"background": "#cd2c00",
-					"background_templates": ["{{ if gt .Code 0 }}#e91e63{{ end }}"],
-					"foreground": "#ffffff",
-					"properties": {
-						"always_enabled": true
-					},
-					"style": "diamond",
-					"template": " \u26a1 ",
-					"trailing_diamond": "\ue0b0",
-					"type": "status"
-				}
-			],
-			"type": "prompt"
-		}
-	],
-	"console_title_template": "{{ .Shell }} in {{ .Folder }}",
-	"version": 2
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "folder_separator_icon": " \ue0b1 ",
+            "home_icon": "~",
+            "mapped_locations": {
+              "C:\\Users\\Admin\\Desktop\\BooleanStack": "BooleanStack",
+              "C:\\codingFiles\\work": "work",
+              "C:\\cpp": "cpp"
+            },
+            "mapped_locations_enabled": true,
+            "style": "agnoster_full"
+          },
+          "template": " \uea83 {{ .Parent }}{{ if gt (len .Folder) 10}}{{ printf \"%.15s... \" .Folder }}{{ else }}{{ .Folder }}{{ end }}",
+          "foreground": "#000000",
+          "powerline_symbol": "\ue0b0",
+          "background": "#DAF0EE",
+          "type": "path"
+        },
+        {
+          "properties": {
+            "always_enabled": true
+          },
+          "trailing_diamond": "\ue0b0",
+          "template": "\ue0b0</> \ueba2 {{ .FormattedMs }}\u2800",
+          "foreground": "#ffffff",
+          "background": "#3B413C",
+          "type": "executiontime",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "always_enabled": true
+          },
+          "trailing_diamond": "\ue0b0",
+          "template": " ⚡ ",
+          "foreground": "#ffffff",
+          "background": "#cd2c00",
+          "type": "status",
+          "style": "diamond",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#e91e63{{ end }}"
+          ]
+        }
+      ]
+    }
+  ],
+  "version": 3,
+  "final_space": true
 }

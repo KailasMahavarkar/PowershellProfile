@@ -1,9 +1,22 @@
 ﻿$PATH = $(Get-Location).Path
-oh-my-posh init pwsh --config "C:\Users\Admin\Documents\WindowsPowerShell\posh_theme.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "C:\Users\Kailas.m\Documents\WindowsPowerShell\posh_theme.omp.json" | Invoke-Expression
 
 # basic aliases
 set-alias -name pn -value pnpm
 Set-alias -name yn -Value yarn
+
+function storybook{
+   pn run storybook
+}
+
+function storybook-local{
+   pn run storybook:local
+}
+
+function storybook-native{
+   pn run storybook:native
+}
+
 
 function divider($name) {
     Write-Output ""
@@ -244,6 +257,12 @@ function git-kai() {
     Write-Output "git switch user: kailasmahavarkar"
 }
 
+function git-cw-kailas() {	
+    git config --global user.name "cw-kailas"
+    git config --global user.email "kailas.m@carwale.com"
+    Write-Output "git switch user: cw-kailas"
+}
+
 function git-id() {
     git config user.name	
 }
@@ -288,16 +307,6 @@ function gin-nodemon() {
 function gin-start() {
     CompileDaemon -color=true -command="./main.exe"
 }
-
-
-function em { 
-    cmd /c pnpm $args
-}
-function emx { cmd /c pnpm dlx $args }
-
-
-
-
 
 
 function split($command1, $command2) {
